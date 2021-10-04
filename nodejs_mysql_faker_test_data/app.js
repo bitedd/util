@@ -1,14 +1,15 @@
 const mysql = require('mysql');
 const faker = require('faker');
 
-
-faker.locale = "ko";
+// If you want to put a locale character in your data
+// Not recommended.
+// faker.locale = "ko";
 
 const connection = mysql.createConnection({
-    host: 'ip or url',
+    host: 'host',
     user: 'user',
     database: 'db',
-    password: 'pwd',
+    password: 'passwd',
     acquireTimeout: 1000000
 });
 
@@ -19,14 +20,14 @@ const rowCnt = 10000;
 for (let i = 0; i < repeatCnt; i++){
     const data = [];
     for (let j = 0; j < rowCnt; j++) {
-
+        const firstname = faker.name.firstName();
         data.push([
-            faker.internet.email(),
-            faker.name.findName(),
+            faker.internet.email(firstname),
+            firstname,
             faker.name.lastName(),
             faker.date.between('1940-01-01', '1999-01-05'),
             faker.phone.phoneNumber(),
-            faker.name.gender(),
+            faker.random.arrayElement(['M', 'F']),
             faker.address.zipCode(),
             faker.address.city(),
             faker.date.between('2010-01-01', '2021-01-05')
