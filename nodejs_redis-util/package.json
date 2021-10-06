@@ -1,0 +1,16 @@
+{
+  "name": "redis-util",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "redis": "^4.0.0-rc.1",
+    "redis-json": "^6.0.1"
+  },
+  "type": "module"
+}
